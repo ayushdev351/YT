@@ -1,18 +1,15 @@
-import React, { useContext } from 'react'
-
-import pageContext from '../context/pageContext'
-
 import Sidebar from './Sidebar'
 import MainContainer from './MainContainer'
+import { useSelector } from 'react-redux';
 
 const Body = () => {
 
-  const pageData = useContext(pageContext);
+  const isMenuOpen = useSelector((store) => store.page.isMenuOpen);
 
   return (
     <div className='flex px-5 py-2'>
-      {pageData.isOpen ? <Sidebar/> : <></>}
-      <MainContainer/>
+      {isMenuOpen ? <Sidebar/> : <></>}
+      <MainContainer/> 
     </div>
   )
 }

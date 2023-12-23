@@ -1,20 +1,18 @@
-import { useState } from 'react';
+import { Provider } from 'react-redux';
+
+import appStore from './utils/store';
 
 import './App.css'
 import Head from './components/Head';
 import Body from './components/Body'
 
-import pageContext from './context/pageContext';
 
 function App() {
-
-  const [isOpen, setIsOpen] = useState(1);
-  
   return (
-    <pageContext.Provider value={{isOpen : isOpen, setIsOpen : setIsOpen}}>
+    <Provider store = {appStore}>
         <Head/>
         <Body/>
-    </pageContext.Provider>
+    </Provider>
   );
 }
 

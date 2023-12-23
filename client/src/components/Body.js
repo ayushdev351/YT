@@ -1,12 +1,17 @@
-import React from 'react'
+import React, { useContext } from 'react'
+
+import pageContext from '../context/pageContext'
 
 import Sidebar from './Sidebar'
 import MainContainer from './MainContainer'
 
-const Body = ({isOpen}) => {
+const Body = () => {
+
+  const pageData = useContext(pageContext);
+
   return (
     <div className='flex px-5 py-2'>
-      {isOpen ? <Sidebar/> : <></>}
+      {pageData.isOpen ? <Sidebar/> : <></>}
       <MainContainer/>
     </div>
   )

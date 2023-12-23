@@ -1,13 +1,16 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import pageContext from '../context/pageContext'
 
-const Head = ({isOpen, setIsOpen}) => {
+const Head = () => {
+
+  const pageData = useContext(pageContext)
 
   function clickHandler(){
-    if(isOpen){
-      setIsOpen(0)
+    if(pageData.isOpen){
+      pageData.setIsOpen(0)
     }
     else{
-      setIsOpen(1)
+      pageData.setIsOpen(1)
     }
   }
 
